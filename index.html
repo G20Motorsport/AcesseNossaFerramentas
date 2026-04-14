@@ -2,224 +2,276 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>G20 Motors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G20 Motors</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #1b1b1b;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1b1b1b;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
 
-/* CONTAINER */
-.retangulo {
-    position: relative;
-    width: 400px;
-    height: 800px;
-    background-image: url('images/fundoG20.jpg');
-    background-size: cover;
-    background-position: center top;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        /* CONTAINER RESPONSIVO */
+        .retangulo {
+            position: relative;
+            width: 90%;
+            max-width: 420px;
+            height: 92vh;
+            max-height: 850px;
 
-/* LOGO */
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+            background-image: url('images/fundoG20.jpg');
+            background-size: cover;
+            background-position: center top;
 
-.logo img {
-    width: 150px;
-}
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
 
-/* FRASE */
-.frase {
-    position: absolute;
-    top: 110px;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    color: #fff;
-    font-size: 14px;
-    text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    white-space: nowrap;
-    max-width: 90%;
-    overflow: hidden;
-    text-overflow: ellipsis; /* corta com ... se passar */
-}
-/* BOTÕES */
-.botoes {
-    margin-top: 200px;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+        /* LOGO */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-/* BOTÃO */
-.botao {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px;
-    background-color: #2e2e2e;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: 0.3s;
-}
+        .logo img {
+            width: 140px;
+            max-width: 40vw;
+        }
 
-.botao:hover {
-    background-color: #fff;
-    color: #000;
-    transform: scale(1.05);
-}
+        /* FRASE */
+        .frase {
+            position: absolute;
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
 
-/* CARROSSEL */
-.carrossel {
-    position: absolute;
-    top: 83%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 12px;
-}
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
 
-/* IMAGENS */
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+            white-space: nowrap;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-    /* 🔥 ESSA PARTE RESOLVE SEU PROBLEMA */
-    object-fit: cover;
-    object-position: center;
+        /* BOTÕES */
+        .botoes {
+            margin-top: 190px;
+            width: 85%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
+        /* BOTÃO */
+        .botao {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
 
-.slide.active {
-    opacity: 1;
-}
+            padding: 14px;
+            font-size: 14px;
 
-/* BOTÕES DO CARROSSEL */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    border: none;
-    padding: 6px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
+            background-color: #2e2e2e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
 
-.prev { left: 10px; }
-.next { right: 10px; }
+            transition: 0.3s;
+        }
 
-.prev:hover, .next:hover {
-    background: #fff;
-    color: #000;
-}
-</style>
+        .botao:hover {
+            background-color: #fff;
+            color: #000;
+            transform: scale(1.05);
+        }
 
+        /* CARROSSEL */
+        .carrossel {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 90%;
+            height: 180px;
+
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        /* IMAGENS */
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* BOTÕES DO CARROSSEL */
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* 📱 CELULAR */
+        @media (max-width: 480px) {
+            .retangulo {
+                height: 95vh;
+            }
+
+            .logo img {
+                width: 120px;
+            }
+
+            .frase {
+                font-size: 12px;
+                top: 100px;
+            }
+
+            .botao {
+                font-size: 13px;
+                padding: 12px;
+            }
+
+            .carrossel {
+                height: 150px;
+            }
+        }
+
+        /* 💻 TELAS GRANDES */
+        @media (min-width: 1200px) {
+            .retangulo {
+                max-width: 450px;
+                height: 850px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="retangulo">
+    <div class="retangulo">
 
-    <!-- LOGO -->
-    <div class="logo">
-        <img src="images/logoG20ContornoPreto.png">
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="images/logoG20ContornoPreto.png">
+        </div>
+
+        <!-- FRASE -->
+        <h4 class="frase">"Excelência em performance e cuidado automotivo."</h4>
+
+        <!-- BOTÕES -->
+        <div class="botoes">
+
+            <a href="https://g20motors.com.br/" class="botao">
+                <i class="fas fa-globe"></i> SITE G20 MOTORS
+            </a>
+            <br>
+            <a href="https://wa.me/5516993936497?text=Olá,%20vim%20pelo%20instagram%20da%20G20%20Motors!" class="botao">
+                <i class="fab fa-whatsapp"></i> WHATSAPP
+            </a>
+            <br>
+            <a href="https://www.google.com/maps/search/?api=1&query=Rua+São+Paulo+1528+Franca+SP" class="botao">
+                <i class="fas fa-map-marker-alt"></i> LOCALIZAÇÃO
+            </a>
+            <br>
+            <a href="https://g.page/r/CRt36ZgIaenKEBM/review" class="botao">
+                <i class="fab fa-google"></i> AVALIAÇÃO GOOGLE
+            </a>
+
+        </div>
+
+        <!-- CARROSSEL -->
+        <div class="carrossel">
+            <img src="images/img1.jpeg" class="slide active">
+            <img src="images/img2.jpeg" class="slide">
+            <img src="images/img4.jpeg" class="slide">
+            <img src="images/img6.jpeg" class="slide">
+            <img src="images/img9.jpeg" class="slide">
+            <img src="images/img13.jpeg" class="slide">
+            <img src="images/img14.jpeg" class="slide">
+            <img src="images/img15.jpeg" class="slide">
+
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+
     </div>
 
-    <!-- FRASE -->
-    <h4 class="frase">"Excelência em performance e cuidado automotivo."</h4>
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.slide');
 
-    <!-- BOTÕES -->
-    <div class="botoes">
+        function showSlide(i) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[i].classList.add('active');
+        }
 
-        <a href="https://g20motors.com.br/" class="botao">
-            <i class="fas fa-globe"></i> SITE G20 MOTORS
-        </a>
-        <br>
-        <a href="https://wa.me/5516993936497?text=Olá,%20vim%20pelo%20instagram%20da%20G20%20Motors!" class="botao">
-            <i class="fab fa-whatsapp"></i> WHATSAPP
-        </a>
-        <br>
-        <a href="https://www.google.com/maps/search/?api=1&query=Rua+São+Paulo+1528+Franca+SP" class="botao">
-            <i class="fas fa-map-marker-alt"></i> LOCALIZAÇÃO
-        </a>
-        <br>
-        <a href="https://g.page/r/CRt36ZgIaenKEBM/review" class="botao">
-            <i class="fab fa-google"></i> AVALIAÇÃO GOOGLE
-        </a>
+        document.querySelector('.next').onclick = () => {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        };
 
-    </div>
+        document.querySelector('.prev').onclick = () => {
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide(index);
+        };
 
-    <!-- CARROSSEL -->
-    <div class="carrossel">
-        <img src="images/img1.jpeg" class="slide active">
-        <img src="images/img2.jpeg" class="slide">
-        <img src="images/img4.jpeg" class="slide">
-        <img src="images/img6.jpeg" class="slide">
-        <img src="images/img9.jpeg" class="slide">
-        <img src="images/img13.jpeg" class="slide">
-        <img src="images/img14.jpeg" class="slide">
-        <img src="images/img15.jpeg" class="slide">
-
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </div>
-
-</div>
-
-<script>
-let index = 0;
-const slides = document.querySelectorAll('.slide');
-
-function showSlide(i) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[i].classList.add('active');
-}
-
-document.querySelector('.next').onclick = () => {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-};
-
-document.querySelector('.prev').onclick = () => {
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
-};
-
-setInterval(() => {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-}, 3000);
-</script>
+        setInterval(() => {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        }, 3000);
+    </script>
 
 </body>
+
 </html>
