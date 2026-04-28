@@ -7,270 +7,371 @@
     <title>G20 Motors</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #1b1b1b;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-        }
-
-        /* CONTAINER RESPONSIVO */
-        .retangulo {
-            position: relative;
-            width: 90%;
-            max-width: 420px;
-            height: 92vh;
-            max-height: 850px;
-
-            background-image: url('images/fundoG20.jpg');
-            background-size: cover;
-            background-position: center top;
-
-            border-radius: 20px;
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* LOGO */
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .logo img {
-            width: 140px;
-            max-width: 40vw;
-        }
-
-        /* FRASE */
-        .frase {
-            position: absolute;
-            top: 110px;
-            left: 50%;
-            transform: translateX(-50%);
-
-            color: #fff;
-            font-size: 14px;
-            text-align: center;
-
-            white-space: nowrap;
-            max-width: 90%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* BOTÕES */
-        .botoes {
-            margin-top: 190px;
-            width: 85%;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        /* BOTÃO */
-        .botao {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-
-            padding: 14px;
-            font-size: 14px;
-
-            background-color: #2e2e2e;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .botao:hover {
-            background-color: #fff;
-            color: #000;
-            transform: scale(1.05);
-        }
-
-        /* CARROSSEL */
-        .carrossel {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-
-            width: 90%;
-            height: 180px;
-
-            overflow: hidden;
-            border-radius: 12px;
-        }
-
-        /* IMAGENS */
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        /* BOTÕES DO CARROSSEL */
-        .prev,
-        .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            border: none;
-            padding: 6px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
-        }
-
-        .prev:hover,
-        .next:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        /* 📱 CELULAR */
-        @media (max-width: 480px) {
-            .retangulo {
-                height: 95vh;
-            }
-
-            .logo img {
-                width: 120px;
-            }
-
-            .frase {
-                font-size: 12px;
-                top: 100px;
-            }
-
-            .botao {
-                font-size: 13px;
-                padding: 12px;
-            }
-
-            .carrossel {
-                height: 150px;
-            }
-        }
-
-        /* 💻 TELAS GRANDES */
-        @media (min-width: 1200px) {
-            .retangulo {
-                max-width: 450px;
-                height: 850px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#top" aria-label="G20 Motors">
+                <img src="images/logoG20ContornoPreto.png" alt="G20 Motors">
+            </a>
 
-    <div class="retangulo">
-
-        <!-- LOGO -->
-        <div class="logo">
-            <img src="images/logoG20ContornoPreto.png">
+            <nav class="header-actions" aria-label="Ações rápidas">
+                <a class="icon-btn" href="https://www.google.com/maps/search/?api=1&query=Rua+São+Paulo+1528+Franca+SP"
+                    target="_blank" rel="noreferrer" aria-label="Localização">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+                <a class="icon-btn"
+                    href="https://wa.me/5516993936497?text=Ol%C3%A1,%20vim%20pelo%20instagram%20da%20G20%20Motors!"
+                    target="_blank" rel="noreferrer" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <button class="icon-btn" type="button" data-menu-button aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </nav>
         </div>
 
-        <!-- FRASE -->
-        <h4 class="frase">"Excelência em performance e cuidado automotivo."</h4>
+        <div class="mobile-menu" data-mobile-menu hidden>
+            <div class="container mobile-menu-inner">
+                <a class="menu-link" href="#servicos">Serviços</a>
+                <a class="menu-link" href="#avaliacoes">Avaliações</a>
+                <a class="menu-link" href="#contato">Contato</a>
+            </div>
+        </div>
+    </header>
 
-        <!-- BOTÕES -->
-        <div class="botoes">
+    <main id="top">
+        <section class="hero" aria-label="Apresentação">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <h1>
+                        EXCELÊNCIA<br>
+                        EM <span class="accent">PERFORMANCE</span><br>
+                        E CUIDADO AUTOMOTIVO.
+                    </h1>
+                    <p>
+                        Na G20 Motors, seu carro recebe o cuidado que ele merece, com tecnologia,
+                        experiência e paixão por performance.
+                    </p>
+                    <div class="hero-cta">
+                        <a class="btn btn-primary"
+                            href="https://wa.me/5516993936497?text=Ol%C3%A1,%20vim%20pelo%20instagram%20da%20G20%20Motors!"
+                            target="_blank" rel="noreferrer">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            FALAR NO WHATSAPP
+                        </a>
+                    </div>
+                </div>
 
-            <a href="https://g20motors.com.br/" class="botao">
-                <i class="fas fa-globe"></i> SITE G20 MOTORS
-            </a>
-            <br>
-            <a href="https://wa.me/5516993936497?text=Olá,%20vim%20pelo%20instagram%20da%20G20%20Motors!" class="botao">
-                <i class="fab fa-whatsapp"></i> WHATSAPP
-            </a>
-            <br>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua+São+Paulo+1528+Franca+SP" class="botao">
-                <i class="fas fa-map-marker-alt"></i> LOCALIZAÇÃO
-            </a>
-            <br>
-            <a href="https://g.page/r/CRt36ZgIaenKEBM/review" class="botao">
-                <i class="fab fa-google"></i> AVALIAÇÃO GOOGLE
-            </a>
+                <div class="hero-media media-frame" aria-label="Foto do carro">
+                    <img class="media-frame-image" src="images/img1.jpeg" alt="">
+                </div>
+            </div>
+        </section>
 
+        <section id="servicos" class="section services">
+            <div class="container">
+                <div class="section-title">
+                    <span class="kicker">NOSSOS SERVIÇOS</span>
+                    <h2>
+                        SOLUÇÕES COMPLETAS PARA<br>
+                        <span class="accent">SEU VEÍCULO</span>
+                    </h2>
+                </div>
+
+                <div class="service-grid">
+                    <article class="card service-card">
+                        <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+                        <h3>CÂMBIO</h3>
+                        <p>Serviços especializados para câmbios manuais e automáticos.</p>
+                    </article>
+
+                    <article class="card service-card">
+                        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>AIRBAG</h3>
+                        <p>Inspeção e reparos para o perfeito funcionamento do sistema.</p>
+                    </article>
+
+                    <article class="card service-card">
+                        <div class="card-icon"><i class="fa-solid fa-arrows-up-down"></i></div>
+                        <h3>SUSPENSÃO</h3>
+                        <p>Manutenção completa e ajustes para garantir estabilidade e conforto.</p>
+                    </article>
+
+                    <article class="card service-card">
+                        <div class="card-icon"><i class="fa-solid fa-circle-stop"></i></div>
+                        <h3>FREIOS ABS</h3>
+                        <p>Manutenção no sistema ABS para máxima segurança.</p>
+                    </article>
+
+                    <article class="card service-card">
+                        <div class="card-icon"><i class="fa-solid fa-oil-can"></i></div>
+                        <h3>MOTOR</h3>
+                        <p>Revisões e reparos para manter potência e eficiência do seu veículo.</p>
+                    </article>
+
+                    <article class="card service-card">
+                        <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <h3>INJEÇÃO ELETRÔNICA</h3>
+                        <p>Diagnósticos e ajustes para desempenho e economia de combustível.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section split">
+            <div class="container split-inner">
+                <div class="split-media media-frame" role="img" aria-label="Foto da oficina">
+                    <img class="media-frame-image" src="images/img21.jpeg" alt="">
+                </div>
+                <div class="split-copy">
+                    <span class="kicker">POR QUE ESCOLHER A G20 MOTORS?</span>
+                    <h2>
+                        PAIXÃO POR CARROS,<br>
+                        COMPROMISSO COM<br>
+                        <span class="accent">RESULTADOS</span>.
+                    </h2>
+                    <ul class="checklist">
+                        <li><i class="fa-solid fa-circle-check"></i> Profissionais especializados</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Equipamentos de alta tecnologia</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Atendimento personalizado</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Peças de qualidade</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="avaliacoes" class="section testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <span class="kicker">AVALIAÇÕES</span>
+                    <h2>O QUE NOSSOS CLIENTES DIZEM</h2>
+                </div>
+
+                <div class="testimonial-carousel" data-testimonial-carousel data-carousel-interval="5500"
+                    aria-roledescription="carrossel">
+                    <div class="testimonial-carousel-viewport">
+                        <div class="testimonial-carousel-track">
+                            <div class="testimonial-group" aria-label="Avaliações 1 de 5">
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Oficina super qualificada, excelência no que faz, ótimo trabalho, super indico!</p>
+                                    <span class="by">— Letícia Ferreira</span>
+                                </article>
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Ótimo trabalho, oficina super organizada, ótimo atendimento e super profissional.
+                                    </p>
+                                    <span class="by">— Luzia Caroline Alves</span>
+                                </article>
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Oficina super limpa e organizada, um ótimo atendimento, cuidadosos, atenciosos e
+                                        responsável, indico pra todos.</p>
+                                    <span class="by">— Kaua Ferreira</span>
+                                </article>
+                            </div>
+                            <div class="testimonial-group" aria-label="Avaliações 2 de 5">
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Profissionais altamente qualificados, ferramentas de última geração e um excelente
+                                        atendimento, melhor Oficina de Franca e região</p>
+                                    <span class="by">— Wolmer Junior</span>
+                                </article>
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Local humano e receptivo</p>
+                                    <span class="by">— Marcelo Rogerio Santana</span>
+                                </article>
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Ótima mão de obra</p>
+                                    <span class="by">— Cesar Ferreira</span>
+                                </article>
+                            </div>
+                            <div class="testimonial-group" aria-label="Avaliações 3 de 5">
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Ótimo atendimento</p>
+                                    <span class="by">— Tour 360 Marketing Digital</span>
+                                </article>
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Amei o atendimento de lá, ótimo.</p>
+                                    <span class="by">— Sophia Ferreira</span>
+                                </article>
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Excelente atendimento e excelente serviço prestado. Foram muito honestos e justos
+                                        comigo, nota 10. Obrigado, Deus abençoe.</p>
+                                    <span class="by">— Leonardo Jose</span>
+                                </article>
+                            </div>
+                            <div class="testimonial-group" aria-label="Avaliações 4 de 5">
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Serviços ótimos, bem feitos, atendimento excelente com qualidade, lugar organizado
+                                        e limpo, recomendo muito conhecer a G20 Motorsport.</p>
+                                    <span class="by">— Davi Bontorin</span>
+                                </article>
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Profissionais muito qualificados, com atendimento excelente. Serviço realizado com
+                                        qualidade e atenção aos detalhes.</p>
+                                    <span class="by">— Miqueias Felipe</span>
+                                </article>
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Ótima! Lugar excelente, com profissionais ótimos.</p>
+                                    <span class="by">— Deborah Fernanda</span>
+                                </article>
+                            </div>
+                            <div class="testimonial-group testimonial-group--partial" aria-label="Avaliações 5 de 5">
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Ótimo, um bom atendimento e ótimos funcionários.</p>
+                                    <span class="by">— Leonardo Duarte</span>
+                                </article>
+                                <article class="card testimonial-card">
+                                    <div class="stars" aria-label="5 de 5 estrelas">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>Melhor de Franca região</p>
+                                    <span class="by">— Letícia Ferreira</span>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-bg" aria-hidden="true">
+                <div class="cta-rays"></div>
+                <div class="cta-bg-scrim"></div>
+            </div>
+            <div class="container cta-inner">
+                <div class="cta-copy">
+                    <h2>PRONTO PARA LEVAR SEU<br>CARRO AO <span class="accent">PRÓXIMO NÍVEL?</span></h2>
+                    <p>Fale com a gente e agende seu atendimento.</p>
+                    <div class="cta-actions">
+                        <a class="btn btn-primary"
+                            href="https://wa.me/5516993936497?text=Ol%C3%A1,%20vim%20pelo%20instagram%20da%20G20%20Motors!"
+                            target="_blank" rel="noreferrer">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span class="btn-text">FALAR NO<br>WHATSAPP</span>
+                        </a>
+                        <a class="btn btn-primary"
+                            href="https://www.google.com/maps/search/?api=1&query=Rua+São+Paulo+1528+Franca+SP"
+                            target="_blank" rel="noreferrer">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span class="btn-text">LOCALIZAÇÃO</span>
+                        </a>
+                        <a class="btn btn-primary" href="https://g.page/r/CRt36ZgIaenKEBM/review" target="_blank"
+                            rel="noreferrer">
+                            <i class="fa-brands fa-google"></i>
+                            <span class="btn-text">AVALIAR<br>NO GOOGLE</span>
+                        </a>
+                        <a class="btn btn-primary" href="https://g20motors.com.br/" target="_blank" rel="noreferrer">
+                            <i class="fa-solid fa-globe"></i>
+                            <span class="btn-text">SITE<br>G20 MOTORS</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="cta-media" aria-hidden="true"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato" class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="images/logoG20ContornoPreto.png" alt="G20 Motors">
+                <p>Excelência em performance e cuidado automotivo. Seu carro, nossa paixão.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>LINKS RÁPIDOS</h3>
+                <a href="#servicos">Serviços</a>
+                <a href="#avaliacoes">Avaliações</a>
+                <a href="https://g20motors.com.br/" target="_blank" rel="noreferrer">Site</a>
+                <a href="https://g.page/r/CRt36ZgIaenKEBM/review" target="_blank" rel="noreferrer">Avaliar no Google</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>CONTATO</h3>
+                <a href="tel:+5516993936497"><i class="fa-solid fa-phone"></i> (16) 9 9393-6497</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Rua+São+Paulo+1528+Franca+SP" target="_blank"
+                    rel="noreferrer"><i class="fa-solid fa-location-dot"></i> Rua São Paulo - SP</a>
+                <a href="https://g20motors.com.br/" target="_blank" rel="noreferrer"><i class="fa-solid fa-globe"></i>
+                    g20motors.com.br</a>
+            </div>
         </div>
 
-        <!-- CARROSSEL -->
-        <div class="carrossel">
-            <img src="images/img1.jpeg" class="slide active">
-            <img src="images/img2.jpeg" class="slide">
-            <img src="images/img4.jpeg" class="slide">
-            <img src="images/img6.jpeg" class="slide">
-            <img src="images/img9.jpeg" class="slide">
-            <img src="images/img13.jpeg" class="slide">
-            <img src="images/img14.jpeg" class="slide">
-            <img src="images/img15.jpeg" class="slide">
-
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
+        <div class="container footer-bottom">
+            <span>© <span data-current-year></span> G20 Motors. Todos os direitos reservados.</span>
         </div>
+    </footer>
 
-    </div>
-
-    <script>
-        let index = 0;
-        const slides = document.querySelectorAll('.slide');
-
-        function showSlide(i) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[i].classList.add('active');
-        }
-
-        document.querySelector('.next').onclick = () => {
-            index = (index + 1) % slides.length;
-            showSlide(index);
-        };
-
-        document.querySelector('.prev').onclick = () => {
-            index = (index - 1 + slides.length) % slides.length;
-            showSlide(index);
-        };
-
-        setInterval(() => {
-            index = (index + 1) % slides.length;
-            showSlide(index);
-        }, 3000);
-    </script>
+    <script src="./script.js"></script>
 
 </body>
 
