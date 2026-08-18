@@ -151,15 +151,14 @@ a {
   background-image:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.22) 0%,
-      rgba(0, 0, 0, 0.38) 30%,
-      rgba(0, 0, 0, 0.82) 58%,
-      #000 76%
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0.28) 34%,
+      rgba(0, 0, 0, 0.78) 62%,
+      #000 82%
     ),
-    url("https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1920&q=80"),
-    url("../assets/bmw.jpg");
+    url("../assets/hero-bmw.png");
   background-size: cover;
-  background-position: 18% center;
+  background-position: left center;
   background-repeat: no-repeat;
 }
 
@@ -480,9 +479,9 @@ a {
 
   .hero {
     background-image:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.72) 42%, #000 100%),
-      url("https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1400&q=80");
-    background-position: center 30%;
+      linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.68) 48%, #000 100%),
+      url("../assets/hero-bmw.png");
+    background-position: left 20%;
   }
 
   .hero-inner {
