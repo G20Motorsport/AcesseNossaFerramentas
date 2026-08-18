@@ -29,11 +29,16 @@ body {
   min-height: 100%;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Montserrat", Arial, sans-serif;
   background: var(--black);
   color: var(--white);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img {
@@ -146,36 +151,54 @@ a {
 /* ========== HERO ========== */
 .hero {
   position: relative;
-  overflow: hidden;
-  background-color: #000;
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.22) 0%,
-      rgba(0, 0, 0, 0.38) 30%,
-      rgba(0, 0, 0, 0.82) 58%,
-      #000 76%
-    ),
-    url("../assets/fundo-bmw.jpg");
-  background-size: cover;
-  background-position: 18% center;
-  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 480px);
+  align-items: stretch;
+  min-height: calc(100vh - 86px - 92px);
+  background: #000;
 }
 
-.hero-inner {
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr minmax(380px, 470px);
-  gap: 48px;
+.hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 40px 48px 52px;
-  min-height: calc(100vh - 86px - 92px);
+  justify-content: center;
+  gap: 22px;
+  overflow: hidden;
+  padding: 28px 24px 32px;
+}
+
+.hero-photo {
+  width: auto;
+  height: auto;
+  max-width: min(100%, 787px);
+  max-height: min(calc(100vh - 280px), 720px);
+  object-fit: contain;
+  object-position: center center;
+  display: block;
 }
 
 .branding {
+  width: 100%;
   max-width: 620px;
-  padding-top: 8px;
+}
+
+.hero-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 36px 28px 12px;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 470px;
+  background: var(--white);
+  color: var(--text);
+  border-radius: var(--radius-card);
+  padding: 32px 34px 30px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
 }
 
 .logo-lockup--hero {
@@ -235,14 +258,6 @@ a {
 }
 
 /* ========== FORM ========== */
-.form-card {
-  background: var(--white);
-  color: var(--text);
-  border-radius: var(--radius-card);
-  padding: 32px 34px 30px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
-}
-
 .form-head {
   display: flex;
   align-items: flex-start;
@@ -459,35 +474,55 @@ a {
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 1024px) {
-  .hero-inner {
-    grid-template-columns: 1fr 420px;
-    gap: 32px;
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  }
+
+  .hero-photo {
+    max-height: min(calc(100vh - 300px), 560px);
   }
 
   .branding h1 {
     font-size: 32px;
   }
+
+  .header-inner {
+    padding: 8px 24px;
+  }
 }
 
 @media (max-width: 860px) {
-  .header-inner,
-  .hero-inner {
-    padding-left: 20px;
-    padding-right: 20px;
+  .header-inner {
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .header-meta {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo-lockup--header img {
+    height: 58px;
   }
 
   .hero {
-    background-image:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.72) 42%, #000 100%),
-      url("../assets/fundo-bmw.jpg");
-    background-position: center 30%;
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
 
-  .hero-inner {
-    grid-template-columns: 1fr;
-    padding: 28px 20px 40px;
-    min-height: auto;
+  .hero-visual {
+    padding: 20px 16px 8px;
+    gap: 16px;
+  }
+
+  .hero-photo {
+    max-width: min(100%, 420px);
+    max-height: 48vh;
   }
 
   .branding {
@@ -501,11 +536,7 @@ a {
   }
 
   .logo-lockup--hero img {
-    width: min(260px, 80%);
-  }
-
-  .logo-lockup--header img {
-    height: 58px;
+    width: min(240px, 78%);
   }
 
   .branding p {
@@ -522,20 +553,13 @@ a {
     text-align: center;
   }
 
+  .hero-form {
+    padding: 12px 16px 28px;
+  }
+
   .form-card {
-    padding: 26px 20px 24px;
-  }
-
-  .header-inner {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .header-meta {
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 26px 18px 24px;
+    max-width: 100%;
   }
 
   .footer-inner {
@@ -559,6 +583,14 @@ a {
 
   .header-divider {
     display: none;
+  }
+
+  .hero-photo {
+    max-height: 38vh;
+  }
+
+  .branding h1 {
+    font-size: 26px;
   }
 
   .footer-inner {
