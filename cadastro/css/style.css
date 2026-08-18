@@ -72,87 +72,25 @@ a {
 
 .logo-lockup {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  line-height: 1;
-  color: #fff;
-}
-
-.logo-owner {
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.38em;
-  text-transform: none;
-  margin-bottom: 2px;
-  padding-left: 6px;
-}
-
-.logo-row {
-  display: flex;
   align-items: center;
-}
-
-.logo-g20 {
-  font-family: "Oswald", "Arial Black", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: -3px;
-  transform: skewX(-8deg);
-  line-height: 0.82;
-}
-
-.logo-stripes {
-  object-fit: contain;
-  max-width: none;
-}
-
-.logo-sub {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.42em;
-  margin-top: 4px;
-  padding-left: 2px;
-}
-
-.logo-lockup--header {
   flex-shrink: 0;
 }
 
-.logo-lockup--header .logo-g20 {
-  font-size: 42px;
+.logo-lockup img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
 }
 
-.logo-lockup--header .logo-stripes {
-  height: 44px;
-  width: 28px;
-  margin-left: -4px;
-  object-fit: cover;
+.logo-lockup--header img {
+  height: 72px;
 }
 
-.logo-lockup--hero .logo-owner {
-  font-size: 14px;
-  letter-spacing: 0.42em;
-  padding-left: 10px;
-  margin-bottom: 4px;
-}
-
-.logo-lockup--hero .logo-g20 {
-  font-size: 92px;
-  letter-spacing: -6px;
-}
-
-.logo-lockup--hero .logo-stripes {
-  height: 90px;
-  width: 56px;
-  margin-left: -10px;
-  object-fit: cover;
-}
-
-.logo-lockup--hero .logo-sub {
-  font-size: 16px;
-  letter-spacing: 0.5em;
-  margin-top: 6px;
-  padding-left: 8px;
+.logo-lockup--hero img {
+  width: min(360px, 100%);
+  height: auto;
 }
 
 .header-meta {
@@ -555,17 +493,16 @@ a {
   }
 
   .logo-lockup--hero {
-    align-items: center;
+    justify-content: center;
     margin: 0 auto 18px;
   }
 
-  .logo-lockup--hero .logo-g20 {
-    font-size: 72px;
+  .logo-lockup--hero img {
+    width: min(260px, 80%);
   }
 
-  .logo-lockup--hero .logo-stripes {
-    height: 70px;
-    width: 44px;
+  .logo-lockup--header img {
+    height: 58px;
   }
 
   .branding p {
