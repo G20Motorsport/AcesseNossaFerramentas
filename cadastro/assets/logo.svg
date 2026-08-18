@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 220" fill="none">
+  <text x="168" y="32" text-anchor="middle" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="500" letter-spacing="6">Ulisses Reis</text>
+  <g transform="translate(18, 48) skewX(-16)">
+    <text x="0" y="92" fill="#ffffff" font-family="Oswald, Arial Black, sans-serif" font-size="108" font-weight="700" letter-spacing="-6">G20</text>
+  </g>
+  <g transform="translate(392, 46) skewX(-16)">
+    <path d="M8 0 H22 V118 H8 A8 8 0 0 1 0 110 V8 A8 8 0 0 1 8 0 Z" fill="#29C5F6"/>
+    <rect x="22" y="0" width="22" height="118" fill="#1A2BB8"/>
+    <path d="M44 0 H58 A8 8 0 0 1 66 8 V110 A8 8 0 0 1 58 118 H44 Z" fill="#E31C23"/>
+  </g>
+  <rect x="78" y="172" width="360" height="34" rx="2" fill="#000000"/>
+  <text x="258" y="195" text-anchor="middle" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="7">MOTORS SPORTS</text>
+</svg>
