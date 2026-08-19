@@ -12,7 +12,7 @@
       content="Preencha seus dados para cadastro e abertura de Ordem de Serviço na G20 Motors Sports."
     />
     <link rel="icon" href="assets/favicon.png" />
-    <link rel="stylesheet" href="css/style.css?v=14" />
+    <link rel="stylesheet" href="css/style.css?v=15" />
     <link rel="preload" as="image" href="assets/bmw-inicio.jpg?v=12" />
   </head>
   <body>
@@ -262,6 +262,51 @@
       </div>
     </footer>
 
-    <script src="js/script.js?v=14"></script>
+    <div
+      id="lgpd-modal"
+      class="lgpd-overlay"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="lgpd-title"
+    >
+      <div class="lgpd-dialog">
+        <button type="button" class="lgpd-close" id="lgpd-fechar" aria-label="Fechar">
+          ×
+        </button>
+        <h3 id="lgpd-title">Privacidade e Proteção de Dados</h3>
+        <div class="lgpd-body">
+          <p>
+            A G20 Motors respeita a sua privacidade e protege seus dados pessoais de acordo com a Lei Geral de Proteção de Dados – LGPD (Lei nº 13.709/2018).
+          </p>
+          <p>
+            Os dados informados neste formulário serão utilizados para identificação e cadastro do cliente, abertura e gerenciamento de Ordem de Serviço, atendimento e demais procedimentos necessários à prestação dos serviços da G20 Motors.
+          </p>
+          <p>
+            Ao enviar o formulário, as informações serão encaminhadas ao canal oficial de atendimento da G20 Motors e tratadas somente para as finalidades informadas e demais hipóteses permitidas pela legislação aplicável.
+          </p>
+          <p>
+            Para saber quais dados são tratados, suas finalidades, formas de armazenamento e compartilhamento, período de retenção, medidas de segurança e seus direitos como titular, consulte nosso
+            <a href="aviso-privacidade.html" target="_blank" rel="noopener">Aviso de Privacidade</a>.
+          </p>
+        </div>
+        <label class="lgpd-check" for="lgpd-aceite">
+          <input type="checkbox" id="lgpd-aceite" name="lgpd-aceite" />
+          <span>
+            Declaro que li e estou ciente das informações acima e do Aviso de Privacidade da G20 Motors, inclusive sobre o tratamento dos meus dados pessoais para as finalidades informadas.
+          </span>
+        </label>
+        <div class="lgpd-actions">
+          <button type="button" class="lgpd-btn lgpd-btn-cancel" id="lgpd-cancelar">
+            Cancelar
+          </button>
+          <button type="button" class="lgpd-btn lgpd-btn-continue" id="lgpd-continuar" disabled>
+            Continuar e enviar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js?v=15"></script>
   </body>
 </html>

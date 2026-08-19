@@ -1,7 +1,16 @@
 const WHATSAPP_NUMBER = "5516993936497";
+const LGPD_VERSION = "1.0";
+const LGPD_ORIGEM = "Cadastro G20 Motors";
 
 const form = document.getElementById("cadastro-form");
 const submitBtn = document.getElementById("btn-enviar");
+const lgpdModal = document.getElementById("lgpd-modal");
+const lgpdAceite = document.getElementById("lgpd-aceite");
+const lgpdContinuar = document.getElementById("lgpd-continuar");
+const lgpdCancelar = document.getElementById("lgpd-cancelar");
+const lgpdFechar = document.getElementById("lgpd-fechar");
+
+let isSending = false;
 
 function onlyDigits(value) {
   return value.replace(/\D/g, "");
@@ -136,10 +145,66 @@ function buildMessage(data) {
   ].join("\n");
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!validate()) return;
+function pad2(n) {
+  return String(n).padStart(2, "0");
+}
 
+function formatDateTimeBR(date) {
+  return (
+    `${pad2(date.getDate())}/${pad2(date.getMonth() + 1)}/${date.getFullYear()} ` +
+    `${pad2(date.getHours())}:${pad2(date.getMinutes())}:${pad2(date.getSeconds())}`
+  );
+}
+
+function makeProtocol(date) {
+  const stamp =
+    `${date.getFullYear()}${pad2(date.getMonth() + 1)}${pad2(date.getDate())}`;
+  let seq = 0;
+  if (window.crypto && crypto.getRandomValues) {
+    seq = crypto.getRandomValues(new Uint32Array(1))[0] % 1000000;
+  } else {
+    seq = Math.floor(Math.random() * 1000000);
+  }
+  return `G20-${stamp}-${String(seq).padStart(6, "0")}`;
+}
+
+function buildAuditFooter(meta) {
+  return [
+    "",
+    "---",
+    `Protocolo: ${meta.protocolo}`,
+    `Data/Hora: ${meta.dataHora}`,
+    `Versão LGPD: ${meta.versao}`,
+    `Aceite: ${meta.aceite}`,
+    `Origem: ${meta.origem}`,
+  ].join("\n");
+}
+
+function resetLgpdModal() {
+  lgpdAceite.checked = false;
+  lgpdContinuar.disabled = true;
+}
+
+function openLgpdModal() {
+  resetLgpdModal();
+  lgpdModal.hidden = false;
+  lgpdModal.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+  lgpdAceite.focus();
+}
+
+function closeLgpdModal() {
+  lgpdModal.classList.remove("is-open");
+  lgpdModal.hidden = true;
+  document.body.style.overflow = "";
+  resetLgpdModal();
+}
+
+function sendToWhatsApp() {
+  if (isSending) return;
+  if (!lgpdAceite.checked) return;
+
+  const aceiteEm = new Date();
   const data = {
     nome: nome.value.trim(),
     cpf: cpf.value.trim(),
@@ -148,11 +213,50 @@ form.addEventListener("submit", (event) => {
     email: email.value.trim(),
   };
 
+  const meta = {
+    protocolo: makeProtocol(aceiteEm),
+    dataHora: formatDateTimeBR(aceiteEm),
+    versao: LGPD_VERSION,
+    aceite: "confirmado",
+    origem: LGPD_ORIGEM,
+  };
+
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    buildMessage(data)
+    buildMessage(data) + buildAuditFooter(meta)
   )}`;
 
+  isSending = true;
+  lgpdContinuar.disabled = true;
   submitBtn.disabled = true;
   submitBtn.querySelector("span").textContent = "Abrindo WhatsApp...";
   window.location.href = url;
+}
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (isSending) return;
+  if (!validate()) return;
+  openLgpdModal();
+});
+
+lgpdAceite.addEventListener("change", () => {
+  lgpdContinuar.disabled = !lgpdAceite.checked;
+});
+
+lgpdContinuar.addEventListener("click", () => {
+  if (!lgpdAceite.checked || isSending) return;
+  sendToWhatsApp();
+});
+
+lgpdCancelar.addEventListener("click", closeLgpdModal);
+lgpdFechar.addEventListener("click", closeLgpdModal);
+
+lgpdModal.addEventListener("click", (event) => {
+  if (event.target === lgpdModal) closeLgpdModal();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && lgpdModal.classList.contains("is-open")) {
+    closeLgpdModal();
+  }
 });
